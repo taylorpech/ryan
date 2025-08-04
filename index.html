@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hawaii Ryan</title>
+  <!-- Tailwind for quick styling -->
+  <link href="https://unpkg.com/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet">
+  <style>body{background:#fff;} /* white background */</style>
+</head>
+<body class="flex items-center justify-center h-screen">
+  <div class="text-center space-y-6">
+    <h1 class="text-4xl font-bold">COMING SOON…</h1>
+    <div id="gate" class="inline-block cursor-pointer">
+      <video
+        src="src/videos/silhouette.mp4"
+        muted loop playsinline
+        class="w-48 h-48 object-contain"
+      ></video>
+    </div>
+  </div>
+  <script>
+    document.getElementById('gate').onclick = () => {
+      const pw = prompt('Enter password:');
+      if (pw === 'taylor123!') {
+        window.location.href = 'index2.html';
+      } else {
+        alert('🔒 Nope!');
+      }
+    }
+  </script>
+</body>
+</html>
