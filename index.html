@@ -1,34 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hawaii Ryan</title>
-  <!-- Tailwind for quick styling -->
-  <link href="https://unpkg.com/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet">
-  <style>body{background:#fff;} /* white background */</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hawaii Ryan – Island Car Match</title>
+  <meta name="description" content="Text your budget. Get 2-3 perfect options. Buy today.">
+  <meta name="theme-color" content="#0ea5a5">
+  <style>
+    :root{--bg:#f6f7f9;--card:#fff;--ink:#0f172a;--muted:#64748b;--accent:#0ea5a5;--radius:12px;--shadow:0 8px 24px rgba(0,0,0,.08)}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+    .wrap{max-width:640px;margin:0 auto;padding:20px}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;margin:20px 0}
+    .header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .brand{display:flex;gap:12px;align-items:center;font-weight:700;font-size:1.1rem}
+    .brand img{height:40px}
+    h1{font-size:1.8rem;margin:0 0 .5rem;line-height:1.2}
+    .cta{display:inline-block;padding:14px 20px;border-radius:10px;text-decoration:none;font-weight:700;border:none;cursor:pointer;font-size:1rem}
+    .cta.primary{background:var(--accent);color:#fff}
+    .cta.secondary{background:#f1f5f9;color:var(--ink)}
+    .row{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+    label{display:block;margin:12px 0 6px;font-weight:600;font-size:.95rem}
+    input,select{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:1rem}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+    .chip{border:1px solid #cbd5e1;background:#f8fafc;color:#0f172a;border-radius:999px;padding:10px 16px;cursor:pointer;font-size:.9rem}
+    .chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    small{color:var(--muted);font-size:.85rem}
+    .footer{text-align:center;padding:16px;color:var(--muted);font-size:.85rem}
+    .grid{display:grid;gap:12px}
+    @media(min-width:480px){.grid{grid-template-columns:1fr 1fr}}
+  </style>
 </head>
-<body class="flex items-center justify-center h-screen">
-  <div class="text-center space-y-6">
-    <h1 class="text-4xl font-bold">COMING SOON…</h1>
-    <div id="gate" class="inline-block cursor-pointer">
-      <video autoplay muted loop playsinline class="w-48 h-auto object-contain">
-        <source src="src/videos/silhouette.webm" type="video/webm">
-        <source src="src/videos/silhouette_cropped.mp4" type="video/mp4">
-        Your browser doesn’t support video.
-      </video>
+<body>
+  <div class="wrap">
+    <div class="card header">
+      <div class="brand">
+        <img src="/assets/HawaiiRyanFullColorLogo.jpg" alt="Hawaii Ryan">
+        <div>Hawaii Ryan</div>
+      </div>
+      <div class="row">
+        <a id="btnText" class="cta secondary">Text</a>
+        <a id="btnCall" class="cta secondary">Call</a>
+      </div>
+    </div>
 
+    <div class="card">
+      <h1>Island car shopping in 15 minutes</h1>
+      <p>Tell me your budget. I'll line up 2-3 options that fit your monthly payment and lifestyle. No pressure, keys ready.</p>
+
+      <form id="planForm">
+        <label>What timing works?</label>
+        <div class="chips" id="timing">
+          <button type="button" class="chip" data-val="Now">Now</button>
+          <button type="button" class="chip" data-val="0-30 days">This month</button>
+          <button type="button" class="chip" data-val="30-90 days">Next 1-3 months</button>
+          <button type="button" class="chip" data-val="Just looking">Just looking</button>
+        </div>
+
+        <label for="budget">Monthly budget (payment only)</label>
+        <input id="budget" type="range" min="200" max="1200" step="50" value="450">
+        <div style="text-align:center;margin:4px 0 12px"><strong id="budgetOut" style="font-size:1.4rem;color:var(--accent)">$450</strong>/month</div>
+
+        <label for="down">Down payment (if any)</label>
+        <input id="down" type="range" min="0" max="10000" step="500" value="1000">
+        <div style="text-align:center;margin:4px 0"><strong id="downOut" style="font-size:1.2rem">$1,000</strong></div>
+
+        <div class="grid" style="margin-top:16px">
+          <div><label for="first">First name</label><input id="first" required></div>
+          <div><label for="phone">Mobile</label><input id="phone" type="tel" required placeholder="808-555-1234"></div>
+        </div>
+
+        <label style="display:flex;gap:8px;align-items:start;margin:16px 0">
+          <input id="smsOK" type="checkbox" style="width:auto;margin-top:4px">
+          <small>I agree to receive texts about my car plan. Reply STOP to opt out. Msg/data rates may apply.</small>
+        </label>
+
+        <button class="cta primary" type="submit" style="width:100%;margin-top:8px">Get my options →</button>
+        <small style="display:block;margin-top:8px;text-align:center">Independent concierge. Not a credit decision.</small>
+      </form>
+    </div>
+
+    <div class="footer">
+      <div><strong>Hawaii Ryan</strong> – Independent car concierge</div>
+      <div>Cutter Automotive Group, Honolulu, HI 96819</div>
+      <div>Phone: <a href="tel:+18085599669">+1 (808) 559-9669</a> · Email: <a href="mailto:ryan@hawaiiryan.com">ryan@hawaiiryan.com</a></div>
+      <div style="margin-top:8px">© 2025 Hawaii Ryan. Educational estimates only.</div>
     </div>
   </div>
+
   <script>
-    document.getElementById('gate').onclick = () => {
-      const pw = prompt('Enter password:');
-      if (pw === 'taylor123!') {
-        window.location.href = 'index2.html';
-      } else {
-        alert('🔒 Nope!');
-      }
-    }
+    // CONFIG
+    const TWILIO_NUMBER = "+18085599669";
+    const WEBHOOK_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec?token=YOURTOKEN";
+
+    // Wire buttons
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const sms = `sms:${TWILIO_NUMBER}${isIOS?'&':'?'}body=${encodeURIComponent("Aloha Ryan! My budget is $450/mo. I'm shopping now.")}`;
+    document.getElementById('btnText').href = sms;
+    document.getElementById('btnCall').href = `tel:${TWILIO_NUMBER}`;
+
+    // Range sliders
+    const budget = document.getElementById('budget'), down = document.getElementById('down');
+    const budgetOut = document.getElementById('budgetOut'), downOut = document.getElementById('downOut');
+    const fmt = n => n.toLocaleString();
+    budget.oninput = () => budgetOut.textContent = `$${fmt(+budget.value)}`;
+    down.oninput = () => downOut.textContent = `$${fmt(+down.value)}`;
+
+    // Timing chips
+    document.querySelectorAll('#timing .chip').forEach(c => c.addEventListener('click', () => {
+      document.querySelectorAll('#timing .chip').forEach(x => x.classList.remove('active'));
+      c.classList.add('active');
+    }));
+
+    // Submit
+    document.getElementById('planForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const timing = document.querySelector('#timing .chip.active');
+      const payload = {
+        created_at: new Date().toISOString(),
+        timing: timing ? timing.dataset.val : "",
+        monthly_budget: +budget.value,
+        down_payment: +down.value,
+        first_name: document.getElementById('first').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        sms_consent: document.getElementById('smsOK').checked
+      };
+
+      // Save locally in case network fails
+      try {
+        const leads = JSON.parse(localStorage.getItem("hr_leads") || "[]");
+        leads.push(payload);
+        localStorage.setItem("hr_leads", JSON.stringify(leads));
+      } catch(_) {}
+
+      // Send to backend
+      try {
+        if (WEBHOOK_URL.startsWith("http")) {
+          await fetch(WEBHOOK_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+        }
+      } catch(_) {}
+
+      // Confirm
+      alert("Mahalo! Ryan will text you within 30 minutes with 2-3 options.");
+      location.reload();
+    });
   </script>
 </body>
 </html>
